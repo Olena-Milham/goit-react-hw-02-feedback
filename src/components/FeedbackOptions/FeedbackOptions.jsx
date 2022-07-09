@@ -1,11 +1,27 @@
-// import React from 'react';
+import PropTypes from 'prop-types';
+import { Box } from "components/UI/Box";
+import { FeedbackBtn } from "./FeedbackOptions.styled";
 
-const FeedbackOptions = ()=>(
-    <>
-    <button type='button'> Good </button>
-    <button type='button'> Neutral </button>
-    <button type='button'> Bad </button>
-    </>
-)
+export const FeedbackOptions =({ options, onLeaveFeedback })=> (
+    <Box as='section'>
+    <h1> Please leave Feedback </h1>
+    <ul>
+    {options.map(option => (
+        <li key={option}>
+        <FeedbackBtn type='button' onClick={() => onLeaveFeedback(option)}> {option} </FeedbackBtn>
+    </li>
+    ))}
+    </ul>
+    </Box>
+);
+   
 
-export default FeedbackOptions;
+FeedbackOptions.propTypes = {
+    options: PropTypes.arrayOf(PropTypes.string.isRequired),
+    onLeaveFeedback: PropTypes.func.isRequired,
+  };
+
+
+
+
+

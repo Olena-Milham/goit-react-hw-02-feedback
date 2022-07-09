@@ -1,10 +1,8 @@
 export const theme = {
     colors: {
-      black: '#000',
       white: '#fff',
       text: '#2a2a2a',
       background: '#FBE7C6',
-      cardsBg:'#ee82ee',
       primary: '#A0E7E5',
       secondary: '#B4F8C8',
       accent: '#609',
@@ -41,4 +39,24 @@ export const theme = {
       extra: '8px',
       round: '50%',
     },
+    shadows:{
+      box1:'0 15px 35px rgba(0,0,0,0.30)',
+      box2:'3px 0px 5px rgb(0 0 0 / 50%)',
+    },
+    caps: {
+      textTransform: 'uppercase',
+      letterSpacing: '0.1em',
+    },
+     // variants for buttons
+  buttons: {
+    primary: {
+      // you can reference other values defined in the theme
+      color: 'white',
+      bg: 'primary',
+    },
+    secondary: {
+      color: 'text',
+      bg: 'secondary',
+    },
+  }
   };
