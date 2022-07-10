@@ -1,7 +1,9 @@
 import PropTypes from 'prop-types';
 import { Box } from "components/UI/Box";
+import { Notification } from 'components/Notification/Notification';
+import { Feedback } from './Feedback';
 
-export const Statistics = ( {good, neutral, bad})=>(
+export const Statistics = ( {good, neutral, bad, total, positivePercentage})=>(
     <Box as='section'>
      <h2> Statistics </h2>
 
@@ -11,6 +13,11 @@ export const Statistics = ( {good, neutral, bad})=>(
       <li> Bad: {bad} </li>
      </Box>
 
+        {total ===0 ? (<Notification message="There is no feedback" />) :
+       (
+       <Feedback total={total}  positivePercentage={positivePercentage}/>)
+        }
+      
      </Box>
 );
 

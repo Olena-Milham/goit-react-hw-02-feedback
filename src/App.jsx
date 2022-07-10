@@ -11,36 +11,47 @@ class App extends Component{
     bad: 0
   }
 
-  handleOnLeaveFeedback =(option)=>{
+
+  handleLeaveFeedback =(option)=>{
     this.setState(prevState => {
       return {[option]:prevState[option] +1};
     })
   }
-  
 
+
+  countTotalFeedback = () => {
+    const  { good, neutral, bad } = this.state;
+    return good + neutral + bad;
+  };
+
+
+  countPositiveFeedbackPercentage=()=>{
+ const total=this.countTotalFeedback();
+ const {good}=this.state;
+ const positiveFeedback=total !== 0 ? Math.round((good * 100) / total) : 0;
+  return positiveFeedback
+}
 
 
 render (){
   const { good, neutral, bad } = this.state;
+  const total = this.countTotalFeedback();
+  const percentage=this.countPositiveFeedbackPercentage()
   return (
     <> 
-    <FeedbackOptions options={Object.keys(this.state)} onLeaveFeedback={this.handleOnLeaveFeedback}/>
+    <FeedbackOptions options={Object.keys(this.state)} onLeaveFeedback={this.handleLeaveFeedback}/>
+    
+    
     <Statistics 
     good={good}
     neutral={neutral}
-    bad={bad}/>
+    bad={bad}
+    total={total}
+    positivePercentage={percentage}
+    />
     </>
-
-    // 
-    //   <div>
-    //     <p> Total Feedback amount </p>
-    //     <p> Positive Feedback Percentage </p>
-    //   </div>
-      
-
-  )
+  );
 }
- 
 };
 
 export default App;
@@ -60,3 +71,27 @@ export default App;
 //     return {[option]:prevState[option] +1};
 //   })
 // }
+
+// countTotalFeedback = () => {
+//   //   console.log(this.state.good);
+//   const {
+//     state: { good, neutral, bad },
+//   } = this;
+
+//   return good + neutral + bad;
+// };
+
+  // countTotalFeedback=()=>{
+  //   // console.log(this.state.good);
+  //   let total = Object.values(this.state).reduce((acc, value) => {
+  //     return acc + value;
+  //   }, 0);
+  //   return total;
+  // }
+
+  // countPositiveFeedbackPercentage=()=>{
+  //   let positivePercentage = 0;
+
+  //   positivePercentage = `${Math.round(this.state.good*100/this.countTotalFeedback())}%`;
+  //   return positivePercentage
+  // }
