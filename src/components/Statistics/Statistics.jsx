@@ -1,13 +1,11 @@
 import PropTypes from 'prop-types';
-import { Box } from "components/UI/Box";
 import { Notification } from 'components/Statistics/Notification/Notification';
 import { Feedback } from './Feedback/Feedback';
-import { Item, List, Title } from './Statistics.styled';
+import { Item, List} from './Statistics.styled';
+import { Section } from 'components/UI/Section/Section';
 
 export const Statistics = ( {good, neutral, bad, total, positivePercentage})=>(
-    <Box as='section'>
-     <Title> Statistics </Title>
-
+    <Section title='Statistics'>     
       <List>
       <Item> Good:{good} </Item>
       <Item> Neutral:{neutral} </Item>
@@ -18,8 +16,7 @@ export const Statistics = ( {good, neutral, bad, total, positivePercentage})=>(
        (
        <Feedback total={total}  positivePercentage={positivePercentage}/>)
         }
-      
-     </Box>
+     </Section>
 );
 
 Statistics.propTypes = {

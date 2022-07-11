@@ -1,9 +1,5 @@
 import styled from 'styled-components'
 
-export const MainTitle=styled.h1`
-margin-top:${p => p.theme.space[0]}px;
-margin-bottom: ${p => p.theme.space[5]}px;
-`
 export const BtnList=styled.ul`
 margin-top: ${p => p.theme.space[0]}px;
 margin-bottom:${p => p.theme.space[5]}px;

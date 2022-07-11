@@ -5,6 +5,7 @@ import { Box } from 'components/UI/Box';
 import {Component} from 'react';
 
 class App extends Component{
+  
   state = {
     good: 0,
     neutral: 0,
