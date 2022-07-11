@@ -1,17 +1,17 @@
 import PropTypes from 'prop-types';
 import { Box } from "components/UI/Box";
-import { FeedbackBtn } from "./FeedbackOptions.styled";
+import { BtnItem, BtnList, FeedbackBtn, MainTitle } from "./FeedbackOptions.styled";
 
 export const FeedbackOptions =({ options, onLeaveFeedback })=> (
     <Box as='section'>
-    <h1> Please leave Feedback </h1>
-    <ul>
+    <MainTitle> Please leave Feedback </MainTitle>
+    <BtnList>
     {options.map(option => (
-        <li key={option}>
+        <BtnItem key={option}>
         <FeedbackBtn type='button' onClick={() => onLeaveFeedback(option)}> {option} </FeedbackBtn>
-    </li>
+    </BtnItem>
     ))}
-    </ul>
+    </BtnList>
     </Box>
 );
    

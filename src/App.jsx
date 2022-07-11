@@ -1,7 +1,7 @@
 
 import {FeedbackOptions} from 'components/FeedbackOptions';
 import { Statistics } from 'components/Statistics/Statistics';
-// import { Box } from 'components/UI/Box';
+import { Box } from 'components/UI/Box';
 import {Component} from 'react';
 
 class App extends Component{
@@ -37,11 +37,10 @@ render (){
   const { good, neutral, bad } = this.state;
   const total = this.countTotalFeedback();
   const percentage=this.countPositiveFeedbackPercentage()
+  const options =Object.keys(this.state)
   return (
-    <> 
-    <FeedbackOptions options={Object.keys(this.state)} onLeaveFeedback={this.handleLeaveFeedback}/>
-    
-    
+    <Box as='main'  pl={5} pt={5} width='50%'> 
+    <FeedbackOptions options={options} onLeaveFeedback={this.handleLeaveFeedback}/>
     <Statistics 
     good={good}
     neutral={neutral}
@@ -49,7 +48,7 @@ render (){
     total={total}
     positivePercentage={percentage}
     />
-    </>
+    </Box>
   );
 }
 };
@@ -72,15 +71,14 @@ export default App;
 //   })
 // }
 
+// ====== when there are only a few items in the list 
 // countTotalFeedback = () => {
 //   //   console.log(this.state.good);
-//   const {
-//     state: { good, neutral, bad },
-//   } = this;
-
+//   { good, neutral, bad } = this.state;
 //   return good + neutral + bad;
 // };
 
+// ===== when there are a lot of items 
   // countTotalFeedback=()=>{
   //   // console.log(this.state.good);
   //   let total = Object.values(this.state).reduce((acc, value) => {
@@ -91,7 +89,6 @@ export default App;
 
   // countPositiveFeedbackPercentage=()=>{
   //   let positivePercentage = 0;
-
-  //   positivePercentage = `${Math.round(this.state.good*100/this.countTotalFeedback())}%`;
-  //   return positivePercentage
+  //   positivePercentage = Math.round(this.state.good*100/this.countTotalFeedback());
+  //   return positivePercentage / NaN (?)
   // }
