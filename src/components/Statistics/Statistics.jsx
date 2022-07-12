@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
-import { Notification } from 'components/Statistics/Notification/Notification';
-import { Feedback } from './Feedback/Feedback';
+import { Notification } from 'components/Statistics/Notification';
+import { Feedback } from './Feedback';
 import { Item, List} from './Statistics.styled';
-import { Section } from 'components/UI/Section/Section';
+import { Section } from 'components/UI/Section';
 
 export const Statistics = ( {good, neutral, bad, total, positivePercentage})=>(
     <Section title='Statistics'>     

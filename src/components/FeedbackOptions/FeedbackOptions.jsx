@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { BtnItem, BtnList, FeedbackBtn } from "./FeedbackOptions.styled";
-import { Section } from 'components/UI/Section/Section';
+import { Section } from 'components/UI/Section';
 
 export const FeedbackOptions =({ options, onLeaveFeedback })=> (
     <Section title='Please leave Feedback'>
