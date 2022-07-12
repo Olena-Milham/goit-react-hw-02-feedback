@@ -19,15 +19,3 @@ FeedbackOptions.propTypes = {
     options: PropTypes.arrayOf(PropTypes.string.isRequired),
     onLeaveFeedback: PropTypes.func.isRequired,
   };
-
-
-// ======== Notes =======
-// anonymous function is needed if we need 
-// to pass an argument or do smth extra 
-// {() => onLeaveFeedback(option)}>
-// <FeedbackBtn type='button' onClick={() => onLeaveFeedback(option)}> {option} </FeedbackBtn>
-// otherwise just pass the function link : onClick= onLeaveFeedback
-
-//    <MainTitle> Please leave Feedback </MainTitle>
-//    <h1> Please leave Feedback </h1> 
-//   <Section title='Please leave Feedback'>
